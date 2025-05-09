@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
+import { useNavigate } from 'react-router-dom';
 
 const services = [
   {
@@ -30,6 +31,7 @@ const services = [
 ];
 
 const CustomerHome = () => {
+  const naviaget = useNavigate();
   return (
     <>
       <Navbar />
@@ -48,7 +50,8 @@ const CustomerHome = () => {
               >
                 <h2 className="text-xl font-semibold text-gray-800">{service.title}</h2>
                 <p className="text-gray-600 mt-2">{service.description}</p>
-                <button className="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
+                <button className="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+                onClick={()=>naviaget(`/service/${service.title.toLowerCase()}`)}>
                   View {service.title}s
                 </button>
               </div>

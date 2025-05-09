@@ -19,7 +19,7 @@ const JobseekersHome = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* Card for "Update Profile" */}
-            <div className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition duration-300">
+            <div className="bg-white p-6 rounded-lg shadow-2xl hover:shadow-lg transition duration-300">
               <h2 className="text-xl font-semibold text-gray-800">Update Your Profile</h2>
               <p className="text-gray-600 mt-2">Ensure your skills and experience are up to date to get more opportunities.</p>
               <button className="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
@@ -29,7 +29,7 @@ const JobseekersHome = () => {
             </div>
 
             {/* Card for "View Opportunities" */}
-            <div className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition duration-300">
+            <div className="bg-white p-6 rounded-lg shadow-2xl hover:shadow-lg transition duration-300">
               <h2 className="text-xl font-semibold text-gray-800">View Opportunities</h2>
               <p className="text-gray-600 mt-2">Browse through job offers that match your skills and location.</p>
               <button className="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
@@ -39,7 +39,7 @@ const JobseekersHome = () => {
             </div>
 
             {/* Card for "Training Resources" */}
-            <div className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition duration-300">
+            <div className="bg-white p-6 rounded-lg shadow-2xl hover:shadow-lg transition duration-300">
               <h2 className="text-xl font-semibold text-gray-800">Training Resources</h2>
               <p className="text-gray-600 mt-2">Improve your skills with our training resources to stay ahead in your field.</p>
               <button className="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
