@@ -31,7 +31,7 @@ const services = [
 ];
 
 const CustomerHome = () => {
-  const navigaet = useNavigate();
+  const navigate = useNavigate();
   return (
     <>
       <Navbar />
