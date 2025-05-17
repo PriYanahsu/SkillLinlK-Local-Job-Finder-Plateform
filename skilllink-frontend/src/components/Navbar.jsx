@@ -33,7 +33,7 @@ const Navbar = () => {
       {/* Mobile Menu */}
       {menuOpen && (
         <div className="md:hidden flex flex-col bg-gray-800 text-white space-y-4 py-4 px-6 transition-all duration-300">
-          {['Home', 'About Us', 'Report', 'Update Info'].map((item) => (
+          {['Home', 'About Us', 'Report', 'Update Info', 'Your Order'].map((item) => (
             <p
               key={item}
               className="font-semibold hover:text-red-400 cursor-pointer"
