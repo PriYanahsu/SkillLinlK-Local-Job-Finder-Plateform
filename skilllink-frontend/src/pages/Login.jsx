@@ -24,9 +24,9 @@ const Login = () => {
   // const handleSubmit = async (e) => {
   //   e.preventDefault();
 
-  //   try {
-  //     const response = await axios.post("/api/auth/login", credentials);
-  //     const { token, user } = response.data;
+    // try {
+    //   const response = await axios.post("/api/auth/login", credentials);
+    //   const { token, user } = response.data;
 
   //     // Save token to localStorage/session (basic example)
   //     localStorage.setItem("token", token);
