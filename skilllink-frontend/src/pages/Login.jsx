@@ -21,35 +21,35 @@ const Login = () => {
     }));
   };
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
+  const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    // try {
-    //   const response = await axios.post("/api/auth/login", credentials);
-    //   const { token, user } = response.data;
+  try {
+    const response = await axios.post("http://localhost:8080/auth/login", credentials);
 
-  //     // Save token to localStorage/session (basic example)
-  //     localStorage.setItem("token", token);
-  //     localStorage.setItem("role", user.role);
+    alert("Login successful!");
 
-  //     alert("Login successful!");
+    // 🟡 Get user from response data
+    const user = response.data.user;
 
-  //     // Navigate based on role
-  //     if (user.role === "ADMIN") navigate("/admin/dashboard");
-  //     else if (user.role === "JOBSEEKER") navigate("/jobseeker/dashboard");
-  //     else navigate("/customer/dashboard");
-  //   } catch (err) {
-  //     console.error(err);
-  //     alert("Invalid credentials.");
-  //   }
-  // };
+    if (response.status === 200) {
+      if (user.role === "ADMIN") navigate("/admin/dashboard");
+      else if (user.role === "JOBSEEKER") navigate("/jobseeker/dashboard");
+      else navigate("/customer/dashboard");
+    }
+  } catch (err) {
+    console.error(err);
+    alert("Invalid credentials.");
+  }
+};
+
 
   return (
     <>
       <Navbar />
       <div className="min-h-130 flex items-center justify-center bg-gray-100">
         <form
-          // onSubmit={handleSubmit}
+          onSubmit={handleSubmit}
           className="bg-white p-8 rounded-lg shadow-md w-full max-w-md space-y-5"
         >
           <h2 className="text-2xl font-bold text-center text-gray-700">Login</h2>
@@ -99,15 +99,6 @@ const Login = () => {
           <button
             type="submit"
             className="w-full bg-blue-600 text-white font-semibold p-2 rounded hover:bg-blue-700"
-            onClick={() => {
-              if (credentials.role === "CUSTOMER") {
-                navigate("/customer-home");
-              } else if (credentials.role === "JOBSEEKER") {
-                navigate("/jobseeker-home");
-              } else {
-                navigate("/admin-home");
-              }
-            }}
           >
             Login
           </button>

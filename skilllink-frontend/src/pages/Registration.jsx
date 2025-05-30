@@ -66,9 +66,14 @@ const RegistrationForm = () => {
     };
 
     try {
-      const res = await axios.post("/api/auth/register", payload);
+      const res = await axios.post("http://localhost:8080/auth/registration", payload);
       console.log("Registration Success:", res.data);
-      alert("Registered Successfully!");
+      if(res.status == 200){
+        navigate("/");
+        alert("Registered Successfully!");
+      }else{
+        alert("Register again !");
+      }
     } catch (error) {
       console.error(error);
       alert("Registration Failed.");
@@ -238,7 +243,6 @@ const RegistrationForm = () => {
   <button
     type="submit"
     className="w-full bg-blue-600 text-white p-2 rounded font-semibold hover:bg-blue-700"
-    onClick={() => navigate('/')}
   >
     Register
   </button>
