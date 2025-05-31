@@ -29,13 +29,12 @@ const Login = () => {
 
     alert("Login successful!");
 
-    // 🟡 Get user from response data
     const user = response.data.user;
 
     if (response.status === 200) {
       if (user.role === "ADMIN") navigate("/admin/dashboard");
-      else if (user.role === "JOBSEEKER") navigate("/jobseeker/dashboard");
-      else navigate("/customer/dashboard");
+      else if (user.role === "JOBSEEKER") navigate("/jobseeker-home");
+      else navigate("/customer-home");
     }
   } catch (err) {
     console.error(err);

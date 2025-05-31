@@ -8,7 +8,7 @@ const RegistrationForm = () => {
 
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    name: "",
+    username: "",
     email: "",
     phone: "",
     password: "",
@@ -54,7 +54,7 @@ const RegistrationForm = () => {
     }
 
     const payload = {
-      name: formData.name,
+      username: formData.username,
       email: formData.email,
       phone: formData.phone,
       password: formData.password,
@@ -94,8 +94,8 @@ const RegistrationForm = () => {
       <label className="block font-semibold">Full Name</label>
       <input
         type="text"
-        name="name"
-        value={formData.name}
+        name="username"
+        value={formData.username}
         onChange={handleChange}
         required
         className="w-full border p-2 rounded mt-1"

@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
+import axios from "axios";
 
 const TrainingResources = () => {
   const resources = [
@@ -40,6 +41,7 @@ const TrainingResources = () => {
       platform: "National Skills Network"
     }
   ];
+
 
   return (
     <>

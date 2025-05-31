@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.HttpClientErrorException;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -27,6 +28,10 @@ public class jobseekerController {
     public ResponseEntity<?> register(@RequestBody UserEntity userDTO) {
         UserEntity user = new UserEntity();
         user.setId(userDTO.getId());
+
+        Optional<UserEntity> usernameData = repoJobseeker.findByEmail(userDTO.getEmail());
+        if(usernameData.isPresent()) return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Mail already Present");
+
         user.setUsername(userDTO.getUsername());
         user.setEmail(userDTO.getEmail());
         user.setPhone(userDTO.getPhone());
@@ -56,7 +61,7 @@ public class jobseekerController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<?> login(UserLogin user){
+    public ResponseEntity<?> login(@RequestBody UserLogin user){
         Optional<UserEntity> fetchUser = repoJobseeker.findByEmail(user.getEmail());
         if(fetchUser.isEmpty()) return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("User not Found");
 
@@ -74,6 +79,12 @@ public class jobseekerController {
         response.put("user", actualUser); // or better, return a DTO without password
 
         return ResponseEntity.ok(response);
+    }
 
+    @GetMapping("/jobseekers")
+    public List<UserEntity> findAllData(){
+        List<UserEntity> current = repoJobseeker.findByRole(Role.JOBSEEKER);
+        System.out.println(current.toString());
+        return current;
     }
 }

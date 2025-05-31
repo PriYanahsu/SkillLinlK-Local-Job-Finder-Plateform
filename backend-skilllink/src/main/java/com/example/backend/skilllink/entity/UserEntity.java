@@ -18,6 +18,8 @@ public class UserEntity {
     private String phone;
     private String password;
     private String location;
+
+    @Enumerated(EnumType.STRING)
     private Role role;
 
     @Embedded
