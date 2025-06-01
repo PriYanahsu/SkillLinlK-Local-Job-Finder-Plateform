@@ -5,7 +5,7 @@ import Footer from "../../components/Footer";
 
 const UpdateProfiles = () => {
   const [formData, setFormData] = useState({
-    name: "",
+    username: "",
     email: "",
     phone: "",
     location: "",
@@ -23,7 +23,7 @@ const UpdateProfiles = () => {
         const data = res.data;
 
         setFormData({
-          name: data.name || "",
+          username: data.username || "",
           email: data.email || "",
           phone: data.phone || "",
           location: data.location || "",
@@ -52,7 +52,7 @@ const UpdateProfiles = () => {
     e.preventDefault();
 
     const updatedData = {
-      name: formData.name,
+      username: formData.username,
       email: formData.email,
       phone: formData.phone,
       location: formData.location,
@@ -60,14 +60,11 @@ const UpdateProfiles = () => {
         skills: formData.skills,
         experience: formData.experience,
         radius: formData.radius
-      },
-      customerDetails: {
-        address: formData.address
       }
     };
 
     try {
-      const res = await axios.put("/api/jobseeker/profile", updatedData); // Replace with actual API
+      const res = await axios.put("http://localhost:8080/auth/update", updatedData); // Replace with actual API
       alert("Profile updated successfully!");
     } catch (error) {
       console.error("Update failed:", error);
@@ -84,7 +81,7 @@ const UpdateProfiles = () => {
 
           <div>
             <label className="block font-semibold">Full Name</label>
-            <input type="text" name="name" value={formData.name} onChange={handleChange}
+            <input type="text" name="username" value={formData.username} onChange={handleChange}
               className="w-full border p-2 rounded mt-1" />
           </div>
 
@@ -123,12 +120,6 @@ const UpdateProfiles = () => {
               <input type="number" name="radius" value={formData.radius} onChange={handleChange}
                 className="w-full border p-2 rounded mt-1" />
             </div>
-          </div>
-
-          <div>
-            <label className="block font-semibold">Address</label>
-            <textarea name="address" value={formData.address} onChange={handleChange}
-              className="w-full border p-2 rounded mt-1" />
           </div>
 
           <button

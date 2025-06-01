@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
+import React, { use, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const navigate = useNavigate();
 
   const handleToggle = () => setMenuOpen(!menuOpen);
   const handleCloseMenu = () => setMenuOpen(false);
@@ -17,7 +20,8 @@ const Navbar = () => {
           {['Home', 'About Us', 'Report', 'Update Info'].map((item) => (
             <p key={item} className="text-white font-semibold hover:text-red-400 cursor-pointer">{item}</p>
           ))}
-          <button className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-xl font-semibold">
+          <button className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-xl font-semibold"
+          onClick={() => navigate("/")}>
             LogOut
           </button>
         </div>
@@ -44,7 +48,7 @@ const Navbar = () => {
           ))}
           <button
             className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-xl font-semibold"
-            onClick={handleCloseMenu}
+            onClick={() => navigate("/")}
           >
             LogOut
           </button>

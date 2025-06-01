@@ -5,6 +5,7 @@ import com.example.backend.skilllink.entity.UserLogin;
 import com.example.backend.skilllink.repository.JobseekerRepo;
 import com.example.backend.skilllink.enums.Role;
 
+import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -86,5 +87,25 @@ public class jobseekerController {
         List<UserEntity> current = repoJobseeker.findByRole(Role.JOBSEEKER);
         System.out.println(current.toString());
         return current;
+    }
+
+    @PutMapping("/update")
+    public ResponseEntity<?> updateData(@RequestBody UserEntity user){
+        Optional<UserEntity> curr = repoJobseeker.findByEmail(user.getEmail());
+        if(curr.isPresent()){
+            UserEntity newUser = curr.get();
+            newUser.setUsername(user.getUsername());
+            newUser.setEmail(user.getEmail());
+            newUser.setPhone(user.getPhone());
+            newUser.setLocation(user.getLocation());
+
+            newUser.getJobSeekerDetails().setSkills(user.getJobSeekerDetails().getSkills());
+            newUser.getJobSeekerDetails().setExperience(user.getJobSeekerDetails().getExperience());
+            newUser.getJobSeekerDetails().setRadius(user.getJobSeekerDetails().getRadius());
+
+            repoJobseeker.save(newUser);
+            return ResponseEntity.ok().body("Update User");
+        }
+        else return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Check the mail");
     }
 }
