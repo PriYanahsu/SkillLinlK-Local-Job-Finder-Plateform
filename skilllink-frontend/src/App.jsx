@@ -5,6 +5,7 @@ import Registration from './pages/Registration'
 import Login from './pages/Login'
 import CustomerHome from './pages/Customer/CustomerHome'
 import LiveLocation from './pages/Customer/LiveLocation'
+import CustomerNeed from './pages/Customer/CustomerNeed'
 
 import JobseekersHome from './pages/JobSeeker/JobseekersHome'
 import UpdateProfiles from './pages/JobSeeker/UpdateProfiles'
@@ -23,6 +24,7 @@ const App = () => {
         <Route path="/customer-home" element={<CustomerHome />}></Route>
         <Route path="/service/:serviceName" element={<ServiceAvailable />}></Route>
         <Route path="/location-live" element={<LiveLocation />}></Route>
+        <Route path="/customer-need" element={<CustomerNeed/>}></Route>
 
         <Route path="/jobseeker-home" element={<JobseekersHome />}></Route>
         <Route path="/update-jobseeker-profile" element={<UpdateProfiles />}></Route>

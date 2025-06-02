@@ -1,32 +1,26 @@
-import React from "react";
+import React, { useDebugValue, useEffect, useState, useRef } from "react";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
+import axios from "axios";
 
 const ViewOpportunities = () => {
-  const jobs = [
-    {
-      title: "Electrician Needed",
-      location: "Lucknow, Uttar Pradesh",
-      experience: "2+ years",
-      salary: "₹15,000 - ₹20,000 / month",
-      description: "Looking for a certified electrician for residential wiring projects."
-    },
-    {
-      title: "Plumber for Maintenance Work",
-      location: "Kanpur, Uttar Pradesh",
-      experience: "1+ years",
-      salary: "₹12,000 - ₹18,000 / month",
-      description: "Part-time plumber needed for pipe repairs and maintenance tasks."
-    },
-    {
-      title: "House Painter Required",
-      location: "Varanasi, Uttar Pradesh",
-      experience: "3+ years",
-      salary: "₹14,000 - ₹22,000 / project",
-      description: "Experienced house painter for interior and exterior painting projects."
+
+  const [jobs, setJobs] = useState([]);
+  const hasFetched = useRef(false);
+
+  useEffect(() => {
+    if (hasFetched.current) return;
+    hasFetched.current = true;
+    const fetchDta = async () => {
+      try {
+        const response = await axios.get("http://localhost:8080/customer/getData");
+        setJobs(response.data);
+      } catch (error) {
+        alert("error", error);
+      }
     }
-    // Add more job listings here or fetch dynamically
-  ];
+    fetchDta();
+  }, [])
 
   return (
     <>
@@ -46,7 +40,7 @@ const ViewOpportunities = () => {
                 key={index}
                 className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300"
               >
-                <h2 className="text-xl font-semibold text-gray-800">{job.title}</h2>
+                <h2 className="text-xl font-semibold text-gray-800">{job.works}</h2>
                 <p className="text-gray-600 mt-2"><strong>Location:</strong> {job.location}</p>
                 <p className="text-gray-600"><strong>Experience:</strong> {job.experience}</p>
                 <p className="text-gray-600"><strong>Salary:</strong> {job.salary}</p>
