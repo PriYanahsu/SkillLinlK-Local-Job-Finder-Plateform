@@ -35,7 +35,7 @@ const ServiceAvailable = () => {
     return (
         <>
             <Navbar />
-            <div className="min-h-screen bg-gray-100 p-10 px-4">
+            <div className="min-h-screen bg-blue-100 p-10 px-4">
                 <h1 className="text-4xl font-bold text-center text-gray-800 pb-4">
                     List of {serviceName} services currently available...
                 </h1>

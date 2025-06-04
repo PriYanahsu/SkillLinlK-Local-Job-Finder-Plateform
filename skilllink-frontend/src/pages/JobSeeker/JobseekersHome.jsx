@@ -8,7 +8,7 @@ const JobseekersHome = () => {
   return (
     <>
       <Navbar />
-      <div className="min-h-screen bg-gray-100 py-10 px-4">
+      <div className="min-h-screen bg-blue-100 py-10 px-4">
         <div className="max-w-6xl mx-auto">
           <h1 className="text-4xl font-bold text-gray-800 mb-6 text-center">
             Welcome to SkillLink, Job Seeker!

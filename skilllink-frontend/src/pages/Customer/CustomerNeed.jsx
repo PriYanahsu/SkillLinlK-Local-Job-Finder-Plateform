@@ -36,68 +36,70 @@ const CustomerNeed = () => {
 
     return (
         <>
-            <Navbar />
-            <div className='max-w-3xl mx-auto bg-white p-6 mt-10 shadow-lg rounded-lg'>
-                <h2 className='text-3xl font-bold text-center mb-4 text-gray-700'>
-                    Fill the form according to your need...
-                </h2>
-                <form className='space-y-4' onSubmit={uploadData}>
+            <Navbar /><div className='h-screen bg-blue-100 mt-0'>
+                <div className='max-w-3xl mx-auto bg-white p-6 shadow-lg rounded-lg'>
+                    <h2 className='text-3xl font-bold text-center mb-4 text-gray-700'>
+                        Fill the form according to your need...
+                    </h2>
+                    <form className='space-y-4' onSubmit={uploadData}>
 
-                    <div>
-                        <label className='block font-semibold'>Which Work</label>
-                        <input
-                            type="text"
-                            name="works"
-                            value={allData.works}
-                            onChange={update}
-                            className='w-full border p-2 rounded mt-1' />
-                    </div>
+                        <div>
+                            <label className='block font-semibold'>Which Work</label>
+                            <input
+                                type="text"
+                                name="works"
+                                value={allData.works}
+                                onChange={update}
+                                className='w-full border p-2 rounded mt-1' />
+                        </div>
 
-                    <div>
-                        <label className='block font-semibold'>Location</label>
-                        <input
-                            type="text"
-                            name="location"
-                            value={allData.location}
-                            onChange={update}
-                            className='w-full border p-2 rounded mt-1' />
-                    </div>
+                        <div>
+                            <label className='block font-semibold'>Location</label>
+                            <input
+                                type="text"
+                                name="location"
+                                value={allData.location}
+                                onChange={update}
+                                className='w-full border p-2 rounded mt-1' />
+                        </div>
 
-                    <div>
-                        <label className='block font-semibold'>Experience</label>
-                        <input
-                            type="number"
-                            name="experience"
-                            value={allData.experience}
-                            onChange={update}
-                            className='w-full border p-2 rounded mt-1' />
-                    </div>
+                        <div>
+                            <label className='block font-semibold'>Experience</label>
+                            <input
+                                type="number"
+                                name="experience"
+                                value={allData.experience}
+                                onChange={update}
+                                className='w-full border p-2 rounded mt-1' />
+                        </div>
 
-                    <div>
-                        <label className='block font-semibold'>Salary</label>
-                        <input
-                            type="number"
-                            name="salary"
-                            value={allData.salary}
-                            onChange={update}
-                            className='w-full border p-2 rounded mt-1' />
-                    </div>
+                        <div>
+                            <label className='block font-semibold'>Salary</label>
+                            <input
+                                type="number"
+                                name="salary"
+                                value={allData.salary}
+                                onChange={update}
+                                className='w-full border p-2 rounded mt-1' />
+                        </div>
 
-                    <div>
-                        <label className='block font-semibold'>Description</label>
-                        <textarea
-                            name="description"
-                            rows="5"
-                            value={allData.description}
-                            onChange={update}
-                            className='w-full border rounded p-2 mt-1'></textarea>
-                    </div>
+                        <div>
+                            <label className='block font-semibold'>Description</label>
+                            <textarea
+                                name="description"
+                                rows="5"
+                                value={allData.description}
+                                onChange={update}
+                                className='w-full border rounded p-2 mt-1'></textarea>
+                        </div>
 
-                    <button type="submit" className='w-full bg-blue-600 p-2 rounded text-white font-semibold hover:bg-blue-700'>
-                        Post it
-                    </button>
-                </form>
+                        <button type="submit" className='w-full bg-blue-600 p-2 rounded text-white font-semibold hover:bg-blue-700'>
+                            Post it
+                        </button>
+                    </form>
+                </div>
             </div>
+
             <Footer />
         </>
     );

@@ -75,7 +75,7 @@ const UpdateProfiles = () => {
   return (
     <>
       <Navbar />
-      <div className="max-w-3xl mx-auto bg-white p-6 mt-10 shadow-lg rounded-lg">
+      <div className="max-w-3xl mx-auto bg-blue-100 p-6 mt-10 shadow-lg rounded-lg">
         <h2 className="text-3xl font-bold text-center mb-6 text-gray-800">Update Your Profile</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
 
