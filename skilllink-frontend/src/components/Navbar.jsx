@@ -66,8 +66,8 @@ const Navbar = () => {
       )}
 
       {openNav && curr === 'About Us' && (
-        <div className="flex justify-end  w-full px-4 mt-4 bg-gray-100">
-          <div className="bg-blue-300 h-screen md:h-1/2 md:w-1/2 text-white w-full p-6 rounded-lg shadow-lg relative">
+        <div className="flex justify-end  w-full px-4 bg-blue-100">
+          <div className="bg-blue-300 h-1/2 w-full text-white  p-6 rounded-lg shadow-lg relative">
 
             <button
               className="absolute top-3 right-4 text-black font-extrabold text-2xl"
@@ -75,9 +75,9 @@ const Navbar = () => {
             >
               ×
             </button>
-            <h2 className="text-2xl font-bold mb-2">About Me</h2>
+            <h2 className="text-2xl font-bold mb-2">About Us</h2>
             <p className="mb-4">
-              Hi, I'm Priyanshu Singh — a passionate full-stack developer focused on building modern web applications using Spring Boot and React. I enjoy solving complex problems and crafting seamless user experiences.
+              SkillLink is a local job-finding platform designed to connect skilled workers—like electricians, plumbers, carpenters, and more—with real opportunities in their area. Our mission is to simplify the job search process for blue-collar professionals by offering a reliable, easy-to-use app that helps them discover, apply for, and secure local work that matches their expertise. Whether you're looking for urgent help or long-term employment, SkillLink bridges the gap between demand and talent — all within your neighborhood.
             </p>
             <div>
               <h3 className="text-xl font-semibold mb-1">GitHub</h3>
@@ -90,6 +90,28 @@ const Navbar = () => {
                 PriYanahsu
               </a>
             </div>
+          </div>
+        </div>
+      )}
+
+      {openNav && curr === 'Report' && (
+        <div className="flex justify-end w-full px-4 bg-blue-100">
+          <div className='bg-blue-300 h-1/2 w-full text-white p-6 rounded-lg shadow-lg relative'>
+            <button
+              className='absolute top-3 right-4 text-black font-extrabold text-2xl'
+              onClick={() => setOpenNav(false)}
+            >
+              ×
+            </button>
+            <h2 className='text-2xl font-bold mb-2'> Report </h2>
+            <p>As soon as you wanted to do any report you make sure you talking about priyanshu data yoyo.</p>
+            <p className='mb-4'> Do the linked in message below link and also follow first.
+            </p>
+
+            <a href="https://www.linkedin.com/in/priyanshukumar1265/"
+              className='underline text-white hover:text-black'>
+              Priyanshu Kumar
+            </a>
           </div>
         </div>
       )}
